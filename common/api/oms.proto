@@ -1,8 +1,18 @@
 syntax="proto3";
 
 option go_package = "github.com/tuananh9201/commons/api";
+option java_multiple_files = true;
+option java_package = "io.grpc.commons.api";
+option java_outer_classname = "HelloWorldProto";
 
 package api;
+
+message Paging {
+  int32 page = 1;
+  int32 limit = 2;
+  int32 total = 3;
+}
+
 
 service OrderService {
   rpc CreateOrder(CreateOrderRequest) returns (Order);
@@ -30,4 +40,63 @@ message Item {
 message CreateOrderRequest {
   string customerID = 1;
   repeated ItemsWithQWuantity Items = 2;
+}
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (User);
+  rpc GetListUser(GetListUserRequest) returns (GetListUserResponse);
+}
+message CreateUserRequest {
+  string FirstName = 1;
+  string LastName = 2;
+  string Email = 3;
+  string Password = 4;
+}
+
+message GetUserRequest {
+  string ID = 1;
+}
+message GetListUserRequest {
+  Paging paging = 1;
+  UserFilter filter = 2;
+}
+message GetListUserResponse {
+  repeated User data = 1;
+  Paging paging = 2;
+  UserFilter filter = 3;
+}
+
+
+message User {
+  string ID = 1;
+  string FirstName = 2;
+  string LastName = 3;
+  string Email = 4;
+  string Password = 5;
+  string Role = 6;
+  bool DeleteFlag = 7;
+}
+message UserFilter {
+  string email = 1;
+  string first_name = 2;
+  string last_name = 3;
+  bool delete_flag = 4;
+}
+
+
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
 }

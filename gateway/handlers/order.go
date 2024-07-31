@@ -1,4 +1,4 @@
-package main
+package handlers
 
 import (
 	"errors"
@@ -17,7 +17,7 @@ func NewHandler(client pb.OrderServiceClient) *handler {
 	return &handler{client: client}
 }
 
-func (h *handler) registerRoutes(mux *http.ServeMux) {
+func (h *handler) RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("POST /api/customers/{customerID}/orders", h.HandlerCreateOrder)
 }
 

@@ -2,24 +2,26 @@ package main
 
 import (
 	"context"
+	"flag"
+	"fmt"
 	"log"
 	"net"
 
-	common "github.com/tuananh9201/commons"
 	"google.golang.org/grpc"
 )
 
 var (
-	grpcAddr = common.EnvString("GRPC_ADDR", ":2000")
+	// grpcAddr = common.EnvString("ORDER_RGPC_PORT", ":2000")
+	port = flag.Int("port", 50052, "The server port")
 )
 
 func main() {
 
-	l, err := net.Listen("tcp", grpcAddr)
+	l, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", *port))
 	if err != nil {
 		log.Fatalf("grpc.NewServer: %v", err)
 	}
-	defer l.Close()
+	// defer l.Close()
 
 	grpcServer := grpc.NewServer()
 	store := NewStore()
