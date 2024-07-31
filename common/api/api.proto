@@ -1,6 +1,6 @@
 syntax="proto3";
 
-option go_package = "github.com/tuananh9201/commons/api";
+option go_package = "github.com/tuananh9201/go-eco/common/api/api";
 option java_multiple_files = true;
 option java_package = "io.grpc.commons.api";
 option java_outer_classname = "HelloWorldProto";

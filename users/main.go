@@ -7,8 +7,8 @@ import (
 	"log"
 	"net"
 
-	common "github.com/tuananh9201/commons"
-	pb "github.com/tuananh9201/commons/api"
+	common "github.com/tuananh9201/go-eco/common"
+	pb "github.com/tuananh9201/go-eco/helloworld"
 	"google.golang.org/grpc"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

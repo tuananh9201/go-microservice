@@ -5,8 +5,8 @@ import (
 	"log"
 	"strconv"
 
-	common "github.com/tuananh9201/commons"
-	pb "github.com/tuananh9201/commons/api"
+	common "github.com/tuananh9201/go-eco/common"
+	pb "github.com/tuananh9201/go-eco/common/api"
 	"google.golang.org/grpc"
 	"gorm.io/gorm"
 )

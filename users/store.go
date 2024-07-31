@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	common "github.com/tuananh9201/commons"
+	common "github.com/tuananh9201/go-eco/common"
 	"gorm.io/gorm"
 )
 
